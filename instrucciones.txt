@@ -1,0 +1,34 @@
+   DESCRIPCION: El proyecto final del curso de Programación I consiste en un formulario para el registro de colaboradores de una universidad en el cual se pongan en práctica los principales conceptos aprendidos en el curso. 
+
+ 
+
+ASPECTOS A CALIFICAR: 
+
+1.      HERENCIA: Se debe implementar herencia creando una clase abstracta para almacenar las características generales de una persona: primer nombre (obligatorio), segundo nombre, tercer nombre, primer apellido (obligatorio), segundo apellido, apellido de casada, identificador único (obligatorio), fecha de nacimiento (obligatorio), país de nacimiento (obligatorio), departamento o provincia de nacimiento (obligatorio), municipio o ciudad de nacimiento (obligatorio), correo electrónico, teléfono celular, teléfono residencial. (2 puntos) 
+
+2.      CLASES ESPECÍFICAS: Se necesita almacenar datos de entidades que hereden las propiedades de persona (2 puntos). 
+
+ESTUDIANTE: Adicional a los datos de persona posee número de carnet, correo institucional y un indicador de si es mayor de edad calculado en base a la fecha de nacimiento. 
+
+EMPLEADO: Adicional a los datos de persona posee código de empleado, correo institucional, puesto, profesión y salario mensual. 
+
+DOCENTE: Adicional a los datos de persona posee, código de empleado, correo institucional, puesto, profesión, salario mensual y uno o varios cursos que imparte. 
+
+
+3.      FORMULARIO DINAMICO: Inicialmente el formulario debe mostrar una lista desplegable de tipos de colaborador donde muestre los anteriores (Estudiante, empleado, docente) y según la selección mostrará los campos específicos correspondientes validando los campos que serán obligatorios. (2 puntos)
+
+4.      CRUD: EL formulario debe permitir ser limpiado, cancelado o bien debe permitir guardar los datos de los campos ingresados en archivos JSON con las validaciones necesarias para evitar guardar un registro duplicado. El formulario debe permitir la CREACIÓN (create) de registros, la búsqueda y lectura de registros (read), la modificación de registros (update) y la eliminación de registros. (10 puntos) 
+
+5.      DISEÑO VISUAL. El formulario debe estar diseñado con CSS de forma que su diseño sea atractivo y fácil de usar para el usuario. (4 puntos). 
+
+ 
+
+PUNTEO: El proyecto tiene un valor de 20 puntos netos del valor del curso. 
+
+FECHA DE ENTREGA: 16 DE NOVIEMBRE DE 2024. 
+
+FORMA DE ENTREGA: Se deberá subir en una carpeta comprimida el código completo del proyecto en la asignación en Teams y adicionalmente se hará una presentación del proyecto mostrando su forma de uso y realizando los ejemplos por parte del estudiante y realizando las pruebas solicitadas por el docente. 
+
+LENGUAJE A UTILIZAR: La programación debe ser realizada con javascript puro sin el uso de librerías o frameworks adicionales. El diseño debe realizarse con CSS puro y la maquetación con HTML sin el uso de librerías o frameworks adicionales. 
+
+Reference materials

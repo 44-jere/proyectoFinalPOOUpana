@@ -1,0 +1,160 @@
+:root{
+    --max-width:250px;
+    --aside-background:#4b5195;
+    --aside-child-background:#3c427a;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template: 
+    'aside section'
+    'aside section'
+    ;
+    gap: 3px;
+}
+
+.container aside{
+    grid-area: aside;
+}
+.container aside .form-type-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.container aside .previous-forms-filed-container{
+    text-align: center;
+}
+
+.container section{
+    width: 100%;
+    grid-area: section;
+}
+.container section form{
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+}
+.container section .form-conainer-defaul-values{
+    width: inherit;
+    display: inherit;
+    flex-flow: wrap;
+    padding: 5px;
+}
+.container section .form-conainer-dinamic-values{
+    width: inherit;
+    display: inherit;
+    flex-flow: wrap;
+    padding: 5px;
+}
+
+input{
+    outline: none;
+    border-radius: 5px;
+    border-width: .5px;
+    height: 20px;
+    &:focus{
+        outline: 1px solid skyblue;
+        border-color: transparent;
+        box-shadow: 
+        inset 0 2px 2px rgba(0, 0, 0, .2),
+        0 1px 1px rgba(0, 0, 0, .2)
+        ;
+    }
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+/* estilos de la informacion previamente ingresada */
+.aside-container{
+    background-color: var(--aside-background);
+    color: white;
+    max-width: var(--max-width);
+    transition: background-color 0.5s ease
+}
+.previous-info{
+    display: flex;
+    margin: 10px 0;
+    background-color: var(--aside-child-background);
+    transition: background-color 0.5s ease;
+    max-width:var(--max-width);
+}
+.previous-info-details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & > :last-child{
+        align-self: flex-end;
+    }
+}
+.previous-info-details-container > *{
+    max-width:220px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.previous-info-icons-contaienr{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 17%;
+}
+.previous-info-icons-contaienr  button{
+    width: 23px;
+    cursor: pointer;
+}
+
+/* estilos de el formulario */
+.form-container form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.form-container form > *{
+    margin: 10px 20px;
+}
+
+.form-container input[type="submit"]{
+    height: 30px;
+    width: 40%;
+}
+
+/* cursos llevados */
+.curso-impartidos{
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    cursor: url('./eliminarBTN.png'), pointer;
+}
+
+.btn-container{
+    width:20px;
+    height:20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* animaciones */
+.animacion-eliminar{
+    animation: desaparecer 1s ease-out;
+    animation-play-state: paused;
+    opacity: 1;
+  }
+
+@keyframes desaparecer {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
