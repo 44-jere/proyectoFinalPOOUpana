@@ -145,10 +145,14 @@ input{
 
 /* animaciones */
 .animacion-eliminar{
-    animation: desaparecer 1s ease-out;
+    animation: desaparecer 3s ease-out;
     animation-play-state: paused;
     opacity: 1;
-  }
+}
+
+.animacion-aparecer li:last-child{
+    animation: aparecer 3s ease-out;
+}
 
 @keyframes desaparecer {
     0% {
@@ -157,4 +161,13 @@ input{
     100% {
       opacity: 0;
     }
-  }
+}
+
+@keyframes aparecer {
+ from {
+   opacity: 0;
+ }
+ to {
+   opacity: 1;
+ }
+}

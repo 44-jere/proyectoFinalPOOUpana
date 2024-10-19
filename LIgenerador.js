@@ -1,6 +1,6 @@
 import {eliminarBTNConAnimacion} from "./eliminarBTN.js"
 function eliminarElemento(evento){
-  const contenedor = evento.target.parentElement
+  const contenedor = evento.target.parentElement.parentElement.parentElement.parentElement
   contenedor.style.setProperty('--aside-child-background', '#b71c1c');
   eliminarBTNConAnimacion(contenedor)
 }

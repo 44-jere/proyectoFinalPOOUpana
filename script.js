@@ -42,13 +42,19 @@ function obtenerValor(evento){
 formularioSeleccionado.addEventListener("input",obtenerValor)
 
 function manejarFormulario(evento){
+    const formulariosPrevios = document.getElementById("previous-forms-filed-list")
     evento.preventDefault()
     const informacion = new clase({})
     const valoresExtraidos = informacion.obtenerInfoDeForm(formularioPrincipal)
     console.log(valoresExtraidos)
     informacion.saveData(valoresExtraidos)
     informacion.updatePerson(valoresExtraidos)
+    informacion.validarCampos()
     informacion.resetForm(formularioPrincipal)
+    //insertar el registro en la lista
+    const li = informacion.generarElemento(valoresExtraidos)
+    formulariosPrevios.classList.add("animacion-aparecer")
+    formulariosPrevios.appendChild(li)
 }
 
 // recolectar la informacion del formulario

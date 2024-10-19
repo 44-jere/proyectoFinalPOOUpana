@@ -65,8 +65,8 @@ export class Persona{
         if(this.identificador_único === "") campoNoDado("campo identificador único no dado")
         if(this.fecha_de_nacimiento === "") campoNoDado("campo fecha de nacimiento no dado")
         if(this.país_de_nacimiento === "") campoNoDado("campo país de nacimiento no dado")
-        if(this.departamento_o_provincia_de_nacimiento === "") campoNoDado()
-        if(this.municipio_o_ciudad_de_nacimiento === "") campoNoDado()
+        if(this.departamento_o_provincia_de_nacimiento === "") campoNoDado("departamento o provincia de nacimiento")
+        if(this.municipio_o_ciudad_de_nacimiento === "") campoNoDado("municipio o ciudad de nacimiento")
     }
     deletePerson(id){
         const listPersons = JSON.parse(localStorage.getItem("forms"))
@@ -119,20 +119,16 @@ export class Persona{
             this[key] = value // actualizo el valor en el mismo objeto
         })
         localStorage.setItem("forms",JSON.stringify(listPersons))
-        const li = generarLi(data)
         return {
             exito:true,
             message:"actualizado con exito",
-            elemento:li
         }
     }
     pushRegister(data){
         this.saveData(data)
-        const li = generarLi(data)
         return {
             exito:true,
             message:"guardado y generado exitosamente",
-            elemento:li
         }
     }
     actualizarInputs(data){
