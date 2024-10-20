@@ -31,6 +31,14 @@ for (const key in tipoDeFormularios) {
 
 const formularioSeleccionado = document.getElementById("tipo-formulario")
 
+function insertarCamposAdicionales(inputs){
+    const informacionAdicionalContenedor = document.getElementById("addicional-values")
+    informacionAdicionalContenedor.innerHTML = '<legend>Información adicional</legend>'
+    inputs.inputsCreados.forEach(input=>{
+        informacionAdicionalContenedor.appendChild(input)
+    })
+}
+
 function obtenerValor(evento){
     const key = formularioSeleccionado.value
     submitBoton.setAttribute('disabled', true)
@@ -39,11 +47,8 @@ function obtenerValor(evento){
     if(!clase) return
     submitBoton.removeAttribute('disabled')
     const inputs = new clase({}).crearInputs()
-    const informacionAdicionalContenedor = document.getElementById("addicional-values")
-    informacionAdicionalContenedor.innerHTML = '<legend>Información adicional</legend>'
-    inputs.inputsCreados.forEach(input=>{
-        informacionAdicionalContenedor.appendChild(input)
-    })
+
+    insertarCamposAdicionales(inputs)
 }
 
 formularioSeleccionado.addEventListener("input",obtenerValor)
@@ -54,13 +59,18 @@ export function manejarCreacionFormulario(evento){
     const valoresExtraidos = informacion.obtenerInfoDeForm(formularioPrincipal)
     informacion.saveData(valoresExtraidos)
     informacion.updatePerson(valoresExtraidos)
-    informacion.validarCampos()
-    informacion.resetForm(formularioPrincipal)
-    //insertar el registro en la lista
-    const li = informacion.generarElemento(valoresExtraidos)
-    formulariosPreviosEnHTML.appendChild(li)
-    //insertar el formulario en el array
-    formulariosHidratados.push(informacion)
+    try {
+        informacion.validarCampos()
+        informacion.resetForm(formularioPrincipal)
+        //insertar el registro en la lista
+        const li = informacion.generarElemento(valoresExtraidos)
+        formulariosPreviosEnHTML.appendChild(li)
+        //insertar el formulario en el array
+        formulariosHidratados.push(informacion)
+    } catch (error) {
+        informacion.deletePerson(informacion.identificador_único)
+    }
+
 }
 
 // recolectar la informacion del formulario

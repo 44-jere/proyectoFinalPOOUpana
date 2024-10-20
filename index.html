@@ -26,33 +26,20 @@
         </aside>
         <section class="form-container">
             <form action="" id="form-tag">
+
                 <fieldset class="form-conainer-defaul-values">
-                    <legend>Datos Personales</legend>
+                    <legend>Campos obligatorios</legend>
     
                     <div class="input-container">
                         <label for="primer_nombre">primer nombre</label>
                         <input type="text" name="primer_nombre" id="primer_nombre" autocomplete="name" required>
                     </div>
-                    <div class="input-container">
-                        <label for="segundo_nombre">segundo nombre</label>
-                        <input type="text" name="segundo_nombre" id="segundo_nombre" autocomplete="name">
-                    </div>
-                    <div class="input-container">
-                        <label for="tercer_nombre">tercer nombre</label>
-                        <input type="text" name="tercer_nombre" id="tercer_nombre" autocomplete="name">
-                    </div>
+                    
                     <div class="input-container">
                         <label for="primer_apellido">primer apellido</label>
                         <input type="text" name="primer_apellido" id="primer_apellido" autocomplete="family-name" required>
                     </div>
-                    <div class="input-container">
-                        <label for="segundo_apellido">segundo apellido</label>
-                        <input type="text" name="segundo_apellido" id="segundo_apellido" autocomplete="family-name">
-                    </div>
-                    <div class="input-container">
-                        <label for="apellido_de_casad">apellido de casad@</label>
-                        <input type="text" name="apellido_de_casad" id="apellido_de_casad" autocomplete="family-name">
-                    </div>
+                    
                     <div class="input-container">
                         <label for="fecha_de_nacimiento">fecha de nacimiento</label>
                         <input type="date" name="fecha_de_nacimiento" min="1914-12-31" max="2018-12-31" id="fecha_de_nacimiento" autocomplete="bday" required>
@@ -68,6 +55,27 @@
                     <div class="input-container">
                         <label for="municipio_o_ciudad_de_nacimiento">municipio o ciudad de nacimiento</label>
                         <input type="text" name="municipio_o_ciudad_de_nacimiento" id="municipio_o_ciudad_de_nacimiento" required>
+                    </div>
+                    
+                </fieldset>
+                <fieldset class="form-conainer-defaul-values">
+                    <legend>Datos Personales</legend>
+    
+                    <div class="input-container">
+                        <label for="segundo_nombre">segundo nombre</label>
+                        <input type="text" name="segundo_nombre" id="segundo_nombre" autocomplete="name">
+                    </div>
+                    <div class="input-container">
+                        <label for="tercer_nombre">tercer nombre</label>
+                        <input type="text" name="tercer_nombre" id="tercer_nombre" autocomplete="name">
+                    </div>
+                    <div class="input-container">
+                        <label for="segundo_apellido">segundo apellido</label>
+                        <input type="text" name="segundo_apellido" id="segundo_apellido" autocomplete="family-name">
+                    </div>
+                    <div class="input-container">
+                        <label for="apellido_de_casad">apellido de casad@</label>
+                        <input type="text" name="apellido_de_casad" id="apellido_de_casad" autocomplete="family-name">
                     </div>
                     <div class="input-container">
                         <label for="correo_electrónico">correo electrónico</label>
@@ -86,34 +94,6 @@
 
                 <fieldset class="form-conainer-dinamic-values" id="addicional-values">
                     <legend>Información adicional</legend>
-                    <!-- <div class="input-container">
-                        <label for="teléfono_residencial">teléfono residencial</label>
-                        <input type="tel" name="teléfono_residencial" id="teléfono_residencial" autocomplete="tel">
-                    </div>
-                    <div class="input-container">
-                        <label for="teléfono_residencial">teléfono residencial</label>
-                        <input type="tel" name="teléfono_residencial" id="teléfono_residencial" autocomplete="tel">
-                    </div> -->
-                    <!-- <section class="clases-container">
-                        <h3>Cursos</h3>
-                        <div>
-                            <div>
-                                <label for="cursos_1">Curso 1</label>
-                            </div>
-                            <input type="text" id="cursos_1">
-                            <div class="btn-container">
-                                <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12m10-8a8 8 0 1 0 0 16a8 8 0 0 0 0-16"/><path d="M13 7a1 1 0 1 0-2 0v4H7a1 1 0 1 0 0 2h4v4a1 1 0 1 0 2 0v-4h4a1 1 0 1 0 0-2h-4z"/></g></svg>
-                            </div>
-                        </div>
-                        <ol>
-                            <li>
-                                <span>nombre del cursos</span>
-                                <span class="btn-container">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M7.616 20q-.691 0-1.153-.462T6 18.384V6H5V5h4v-.77h6V5h4v1h-1v12.385q0 .69-.462 1.153T16.384 20zm2.192-3h1V8h-1zm3.384 0h1V8h-1z"/></svg>
-                                </span>
-                            </li>
-                        </ol>
-                    </section> -->
                 </fieldset>
                 <input type="submit" id="submit-btn" >
             </form>
