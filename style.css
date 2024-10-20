@@ -26,6 +26,9 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--aside-background);
 }
 .container aside .previous-forms-filed-container{
     text-align: center;
@@ -148,6 +151,12 @@ input{
     display: inline-block;
     cursor: pointer;
 }
+
+/* estilos de los cursos  */
+#cursos-impartidos li{
+    margin-left: 20px;
+}
+
 
 /* animaciones */
 .animacion-eliminar{

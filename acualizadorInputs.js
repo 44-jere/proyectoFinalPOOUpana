@@ -1,5 +1,5 @@
 export function buscarYactualizarInputs({ contenedor, selector, data } = {}) {
-  const contenedorPrincipal = document.querySelector(contenedor);
+  const contenedorPrincipal = document.getElementById(contenedor);
   const inputs = contenedorPrincipal.querySelectorAll(selector);
   inputs.forEach((input) => {
     const id = input.id;

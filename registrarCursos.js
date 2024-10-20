@@ -6,7 +6,6 @@ function eliminarElemento(evento){
       contenedor = contenedor.parentElement
     }
     contenedor = contenedor.parentElement
-    console.log(contenedor)
     
     eliminarBTNConAnimacion(contenedor)
 }
@@ -25,7 +24,7 @@ function agregarCursoEnLista(evento){
 }
 
 // Función para crear el elemento <li>
-function generarElementoCurso(nombreCurso) {
+export function generarElementoCurso(nombreCurso) {
   // Crear el <li> principal
   const li = document.createElement("li");
 

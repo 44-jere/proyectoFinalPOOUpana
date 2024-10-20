@@ -3,8 +3,8 @@ import {hidratarDesdeJSON} from "./hidratarDatos.js"
 export const formulariosHidratados = []
 export const formulariosPreviosEnHTML = document.getElementById("previous-forms-filed-list")
 const previousForms = localStorage.getItem("forms")
-const submitBoton = document.getElementById("submit-btn")
-const formularioPrincipal = document.getElementById("form-tag")
+export const submitBoton = document.getElementById("submit-btn")
+export const formularioPrincipal = document.getElementById("form-tag")
 let clase
 
 submitBoton.setAttribute('disabled', true)
@@ -29,9 +29,9 @@ for (const key in tipoDeFormularios) {
     dataList.appendChild(option)
 }
 
-const formularioSeleccionado = document.getElementById("tipo-formulario")
+export const formularioSeleccionado = document.getElementById("tipo-formulario")
 
-function insertarCamposAdicionales(inputs){
+export function insertarCamposAdicionales(inputs){
     const informacionAdicionalContenedor = document.getElementById("addicional-values")
     informacionAdicionalContenedor.innerHTML = '<legend>Información adicional</legend>'
     inputs.inputsCreados.forEach(input=>{

@@ -1,14 +1,30 @@
 import {eliminarFormulario} from "./manejarEliminaiconFormularioPrevio.js"
-function eliminarElemento(evento){
+import {actulizaFormulario} from "./manejarActualizarFormPrevio.js"
+
+function encontrarBTN(evento){
   let contenedor = evento.target
   while(!(Object.keys(contenedor.dataset).length > 0)){
     contenedor = contenedor.parentElement
   }
-  const id = contenedor.dataset.deletebtn
-  contenedor = document.getElementById(id)
-  eliminarFormulario(id)
-  contenedor.remove()
+  return contenedor
 }
+
+function eliminarElemento(evento){
+  const contenedor = encontrarBTN(evento)
+  const id = contenedor.dataset.deletebtn
+  const li = document.getElementById(id)
+  eliminarFormulario(id)
+  li.remove()
+}
+
+function actualizarInformacion(evento){
+  const contenedor = encontrarBTN(evento)
+  const id = contenedor.dataset.updatebtn
+  const li = document.getElementById(id)
+  actulizaFormulario(id)
+}
+
+
 export function generarLi(data) {
   // Crear el <li> principal
   const li = document.createElement("li");
@@ -72,6 +88,7 @@ export function generarLi(data) {
   // Crear el segundo botón con su SVG
   const editButton = document.createElement("button");
   editButton.dataset.updatebtn = data.identificador_único
+  editButton.addEventListener("click",actualizarInformacion)
   editButton.innerHTML = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">

@@ -1,7 +1,7 @@
 import {generarLi} from "./LIgenerador.js"
 import {buscarYactualizarInputs} from "./acualizadorInputs.js"
 import {generarInput} from "./inputGenerador.js"
-import {generarSeccionCursos} from "./registrarCursos.js"
+import {generarSeccionCursos,generarElementoCurso} from "./registrarCursos.js"
 function campoNoDado(message){
     alert(message)
     throw new Error(message);
@@ -74,9 +74,7 @@ export class Persona{
         const listPersons = JSON.parse(localStorage.getItem("forms"))
         const index = listPersons.findIndex(person=>person.identificador_único === id)
         if (index !== -1) {
-            console.log(listPersons.length,"en el metodo")
             listPersons.splice(index, 1)
-            console.log(listPersons.length,"en el metodo")
             localStorage.setItem("forms",JSON.stringify(listPersons))
             return {
                 exito:true,
@@ -117,7 +115,6 @@ export class Persona{
                 message:"no hay registros"
             }
         }
-        console.log(listPersons)
         const person = listPersons.find(person => person.identificador_único === data.identificador_único)
         if(!person){
             return {
@@ -142,14 +139,14 @@ export class Persona{
             message:"guardado y generado exitosamente",
         }
     }
-    actualizarInputs(data){
+    actualizarInputs(){
         const instrucciones = {
             contenedor:"form-tag",
-            selector:"input",
-            data
+            selector:'input:not([type="submit"])',
+            data:this
         }
 
-        buscarYactualizarInputs(data)
+        buscarYactualizarInputs(instrucciones)
         
         return {
             exito:true,
@@ -401,5 +398,23 @@ export class Docente extends Persona{
     resetForm(form){
         form.reset()
         form.querySelectorAll("[data-curso]").forEach(li=>li.parentElement.remove())
+    }
+    actualizarInputs(){
+        const instrucciones = {
+            contenedor:"form-tag",
+            selector:'input:not([type="submit"])',
+            data:this
+        }
+
+        buscarYactualizarInputs(instrucciones)
+
+        const form = document.getElementById(instrucciones.contenedor)        
+        const ol = form.querySelector("#cursos-impartidos")
+        this.cursos.forEach(e=>ol.appendChild(generarElementoCurso(e)))
+        
+        return {
+            exito:true,
+            mensaje:"los inputs fueron actualizados correctamente"
+        }
     }
 }
