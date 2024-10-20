@@ -72,15 +72,11 @@ export class Persona{
     }
     deletePerson(id){
         const listPersons = JSON.parse(localStorage.getItem("forms"))
-        if(listPersons.length === 0){
-            return {
-                exito:false,
-                message:"no hay registros"
-            }
-        }
         const index = listPersons.findIndex(person=>person.identificador_único === id)
         if (index !== -1) {
+            console.log(listPersons.length,"en el metodo")
             listPersons.splice(index, 1)
+            console.log(listPersons.length,"en el metodo")
             localStorage.setItem("forms",JSON.stringify(listPersons))
             return {
                 exito:true,
@@ -92,10 +88,22 @@ export class Persona{
             mensaje:"no encontrado"
         } // no encontrado
     }
-    saveData(data){
+    saveData(datosPorActualizar){
         const listPersons = JSON.parse(localStorage.getItem("forms"))
+        const valores = Object.entries(this)
+
+        const data = {};     
+        valores.forEach(([key, value]) => {
+            data[key] = value;
+        });
+
+        for(let key in datosPorActualizar){
+            data[key] = datosPorActualizar[key]
+        }
+        
         listPersons.push(data)
         localStorage.setItem("forms",JSON.stringify(listPersons))
+
         return {
             exito:true,
             message:"agregado exitosamente"
@@ -109,6 +117,7 @@ export class Persona{
                 message:"no hay registros"
             }
         }
+        console.log(listPersons)
         const person = listPersons.find(person => person.identificador_único === data.identificador_único)
         if(!person){
             return {
@@ -126,8 +135,8 @@ export class Persona{
             message:"actualizado con exito",
         }
     }
-    pushRegister(data){
-        this.saveData(data)
+    pushRegister(datosPorActualizar){
+        this.saveData(datosPorActualizar)
         return {
             exito:true,
             message:"guardado y generado exitosamente",

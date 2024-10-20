@@ -1,18 +1,23 @@
 import {Estudiante, Empleado, Docente} from "./constructores.js"
+import {hidratarDesdeJSON} from "./hidratarDatos.js"
 export const formulariosHidratados = []
 export const formulariosPreviosEnHTML = document.getElementById("previous-forms-filed-list")
-const previousForms = JSON.parse(localStorage.getItem("forms"))
+const previousForms = localStorage.getItem("forms")
 const submitBoton = document.getElementById("submit-btn")
 const formularioPrincipal = document.getElementById("form-tag")
 let clase
 
 submitBoton.setAttribute('disabled', true)
-if(!previousForms){
-    localStorage.setItem("forms",JSON.stringify([]))
-}
+
 
 export const tipoDeFormularios = {
     Estudiante, Empleado, Docente
+}
+
+if(!previousForms){
+    localStorage.setItem("forms",JSON.stringify([]))
+}else{
+    hidratarDesdeJSON(previousForms)
 }
 const dataList = document.getElementById("list")
 
@@ -53,7 +58,6 @@ export function manejarCreacionFormulario(evento){
     informacion.resetForm(formularioPrincipal)
     //insertar el registro en la lista
     const li = informacion.generarElemento(valoresExtraidos)
-    formulariosPreviosEnHTML.classList.add("animacion-aparecer")
     formulariosPreviosEnHTML.appendChild(li)
     //insertar el formulario en el array
     formulariosHidratados.push(informacion)
