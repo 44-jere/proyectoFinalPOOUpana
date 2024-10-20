@@ -28,6 +28,7 @@ function extraerCursos(form){
 export class Persona{
     constructor(
         {
+            tipo_formulario = "",
             primer_nombre = "",
             segundo_nombre = "",
             tercer_nombre = "",
@@ -44,6 +45,7 @@ export class Persona{
             teléfono_residencial = ""
         }
     ){
+        this.tipo_formulario = tipo_formulario,
         this.primer_nombre = primer_nombre,
         this.segundo_nombre = segundo_nombre,
         this.tercer_nombre = tercer_nombre,
@@ -162,6 +164,7 @@ export class Persona{
 export class Estudiante extends Persona{
     constructor(      
         {
+            tipo_formulario = "Estudiante",
             primer_nombre = "",
             segundo_nombre = "",
             tercer_nombre = "",
@@ -182,6 +185,7 @@ export class Estudiante extends Persona{
     ){
         super(
             {
+                tipo_formulario,
                 primer_nombre,
                 segundo_nombre,
                 tercer_nombre,
@@ -235,6 +239,7 @@ export class Estudiante extends Persona{
 export class Empleado extends Persona{
     constructor(      
         {
+            tipo_formulario = "Empleado",
             primer_nombre = "",
             segundo_nombre = "",
             tercer_nombre = "",
@@ -258,6 +263,7 @@ export class Empleado extends Persona{
     ){
         super(
             {
+                tipo_formulario,
                 primer_nombre,
                 segundo_nombre,
                 tercer_nombre,
@@ -302,6 +308,7 @@ export class Empleado extends Persona{
 export class Docente extends Persona{
     constructor(      
         {
+            tipo_formulario = "Docente",
             primer_nombre = "",
             segundo_nombre = "",
             tercer_nombre = "",
@@ -326,6 +333,7 @@ export class Docente extends Persona{
     ){
         super(
             {
+                tipo_formulario,
                 primer_nombre,
                 segundo_nombre,
                 tercer_nombre,

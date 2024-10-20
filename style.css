@@ -128,6 +128,12 @@ input{
     width: 40%;
 }
 
+/* estilos de los formularios previos */
+#previous-forms-filed-list{
+    display: flex;
+    flex-flow: column-reverse;
+}
+
 /* cursos llevados */
 .curso-impartidos{
     padding: 10px;
@@ -145,7 +151,7 @@ input{
 
 /* animaciones */
 .animacion-eliminar{
-    animation: desaparecer 3s ease-out;
+    animation: desaparecer 1s ease-out;
     animation-play-state: paused;
     opacity: 1;
 }
@@ -160,6 +166,7 @@ input{
     }
     100% {
       opacity: 0;
+      display: none;
     }
 }
 

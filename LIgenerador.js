@@ -1,13 +1,20 @@
-import {eliminarBTNConAnimacion} from "./eliminarBTN.js"
+import {eliminarFormulario} from "./manejarEliminaiconFormularioPrevio.js"
 function eliminarElemento(evento){
-  const contenedor = evento.target.parentElement.parentElement.parentElement.parentElement
-  contenedor.style.setProperty('--aside-child-background', '#b71c1c');
-  eliminarBTNConAnimacion(contenedor)
+  let contenedor = evento.target
+  while(!(Object.keys(contenedor.dataset).length > 0)){
+    contenedor = contenedor.parentElement
+  }
+  const id = contenedor.dataset.deletebtn
+  contenedor = document.getElementById(id)
+  eliminarFormulario(id)
+  contenedor.remove()
 }
 export function generarLi(data) {
   // Crear el <li> principal
   const li = document.createElement("li");
+  li.id = data.identificador_único
   li.className = "previous-info";
+  li.classList.add("animacion-eliminar")
 
   // Crear el contenedor de detalles
   const detailsContainer = document.createElement("div");

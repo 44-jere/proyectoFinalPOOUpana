@@ -1,4 +1,6 @@
 import {Estudiante, Empleado, Docente} from "./constructores.js"
+export const formulariosHidratados = []
+export const formulariosPreviosEnHTML = document.getElementById("previous-forms-filed-list")
 const previousForms = JSON.parse(localStorage.getItem("forms"))
 const submitBoton = document.getElementById("submit-btn")
 const formularioPrincipal = document.getElementById("form-tag")
@@ -9,7 +11,7 @@ if(!previousForms){
     localStorage.setItem("forms",JSON.stringify([]))
 }
 
-const tipoDeFormularios = {
+export const tipoDeFormularios = {
     Estudiante, Empleado, Docente
 }
 const dataList = document.getElementById("list")
@@ -41,21 +43,21 @@ function obtenerValor(evento){
 
 formularioSeleccionado.addEventListener("input",obtenerValor)
 
-function manejarFormulario(evento){
-    const formulariosPrevios = document.getElementById("previous-forms-filed-list")
+export function manejarCreacionFormulario(evento){
     evento.preventDefault()
     const informacion = new clase({})
     const valoresExtraidos = informacion.obtenerInfoDeForm(formularioPrincipal)
-    console.log(valoresExtraidos)
     informacion.saveData(valoresExtraidos)
     informacion.updatePerson(valoresExtraidos)
     informacion.validarCampos()
     informacion.resetForm(formularioPrincipal)
     //insertar el registro en la lista
     const li = informacion.generarElemento(valoresExtraidos)
-    formulariosPrevios.classList.add("animacion-aparecer")
-    formulariosPrevios.appendChild(li)
+    formulariosPreviosEnHTML.classList.add("animacion-aparecer")
+    formulariosPreviosEnHTML.appendChild(li)
+    //insertar el formulario en el array
+    formulariosHidratados.push(informacion)
 }
 
 // recolectar la informacion del formulario
-formularioPrincipal.addEventListener("submit",manejarFormulario)
+formularioPrincipal.addEventListener("submit",manejarCreacionFormulario)
