@@ -157,6 +157,38 @@ input{
     margin-left: 20px;
 }
 
+/* estilos del input tipo file */
+.file-input-container{
+    border: dotted;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 3px;
+}
+#file-input{
+    height: 50px;
+    height: 100%;
+}
+#file-input input{
+    outline: none;
+    width: 100%;
+}
+.drag-over{
+    background-color: var(--aside-child-background);
+}
+/* boton descargar formularios */
+#descargar-formularios{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: var(--aside-child-background);
+    height: 50px;
+    &:hover{
+        border: 1px solid white;
+    }
+}
 
 /* animaciones */
 .animacion-eliminar{

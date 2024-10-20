@@ -16,12 +16,20 @@
                 <datalist id="list">
                     <option value="0">Nada selecionado</option>
                 </datalist>
-
+            </article>
+            <article class="file-input-container" id="area-dropeo">
+                <label id="file-input">
+                    <input type="file" id="archivo" accept=".json"/>
+                    <p>Si lo deseas puedes soltar tus archivos aqui.</p>
+                </label>
             </article>
             <article class="previous-forms-filed-container">
                 <h3>Formularios previos</h3>
                 <ol id="previous-forms-filed-list" class="animacion-aparecer">
                 </ol>
+            </article>
+            <article>
+                <a id="descargar-formularios">Descargar Formularios previos</a>
             </article>
         </aside>
         <section class="form-container">
@@ -103,9 +111,11 @@
 </body>
 
 <script type="module" src="./acualizadorInputs.js"></script>
+<script type="module" src="./descargarFormulario.js"></script>
 <script type="module" src="./eliminarBTN.js"></script>
 <script type="module" src="./inputGenerador.js"></script>
 <script type="module" src="./LIgenerador.js"></script>
+<script type="module" src="./manejardorDrops.js"></script>
 <script type="module" src="./registrarCursos.js"></script>
 <script type="module" src="./script.js"></script>
 <script type="module" src="./constructores.js"></script>

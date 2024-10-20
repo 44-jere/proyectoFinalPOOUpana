@@ -7,7 +7,7 @@ const informe = {
 
 const mostrarInforme = false
 
-export function hidratarDesdeJSON(json){
+export function hidratarDesdeJSON(json,guardarEnMemoria = false){
     const datos = JSON.parse(json)
     datos.forEach(valores => {
         if(!valores.identificador_único){//no tiene id
@@ -24,6 +24,9 @@ export function hidratarDesdeJSON(json){
             formulariosHidratados.push(newFormulario)
             const li = newFormulario.generarElemento(valores)
             formulariosPreviosEnHTML.appendChild(li)
+            if(guardarEnMemoria){
+                newFormulario.saveData(valores)
+            }
         } catch (error) {
             informe.camposFaltantes++
             mostrarInforme = true
