@@ -262,7 +262,11 @@ export class Estudiante extends Persona{
         })
 
         const esMayor = this.esMayor()? "Si":"No"
-        document.querySelector(`[data-esmayor='${this.identificador_único}']`).textContent = esMayor;
+        const esMayorSpan = document.querySelector(`[data-esmayor='${this.identificador_único}']`)
+        if(!!esMayorSpan){
+            esMayorSpan.textContent = esMayor;
+        }
+
 
         localStorage.setItem("forms",JSON.stringify(listPersons))
         return {

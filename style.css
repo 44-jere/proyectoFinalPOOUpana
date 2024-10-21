@@ -29,6 +29,7 @@
     position: sticky;
     top: 0;
     background-color: var(--aside-background);
+    z-index: 1000;
 }
 .container aside .previous-forms-filed-container{
     text-align: center;
