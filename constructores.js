@@ -213,14 +213,21 @@ export class Estudiante extends Persona{
         this.número_de_carnet = número_de_carnet
     }
     esMayor(){
-        //devuelve tue si es mayor y false si es menor
-        const fechaNacimiento = new Date(this.fecha_de_nacimiento)
+        const [year, month, day] = this.fecha_de_nacimiento.split('-').map(Number)
+        const fechaNacimiento = new Date(year, month - 1, day)
+        
         const hoy = new Date()
-        const esMayor = new Date()
-        esMayor.setDate(hoy.getDate() - fechaNacimiento.getDate())
-        esMayor.setMonth(hoy.getMonth() - fechaNacimiento.getMonth())
-        esMayor.setFullYear(hoy.getFullYear() - fechaNacimiento.getFullYear())
-        return esMayor.getFullYear() >=18
+        
+        let edad = hoy.getFullYear() - fechaNacimiento.getFullYear()
+        
+        const mesActual = hoy.getMonth() + 1
+        const diaActual = hoy.getDate()
+        
+        if (mesActual < month || (mesActual === month && diaActual < day)) {
+            edad--
+        }
+        
+        return edad >= 18
     }
     crearInputs(){
         const inputsType = []
