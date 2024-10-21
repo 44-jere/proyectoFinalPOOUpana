@@ -63,7 +63,7 @@ export function manejarCreacionFormulario(evento){
         informacion.validarCampos()
         informacion.resetForm(formularioPrincipal)
         //insertar el registro en la lista
-        const li = informacion.generarElemento(valoresExtraidos)
+        const li = informacion.generarElemento(informacion)
         formulariosPreviosEnHTML.appendChild(li)
         //insertar el formulario en el array
         formulariosHidratados.push(informacion)

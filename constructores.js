@@ -241,6 +241,35 @@ export class Estudiante extends Persona{
         const inputsCreados = inputsType.map(input => generarInput(input))
         return {inputsCreados}
     }
+    updatePerson(data){
+        const listPersons = JSON.parse(localStorage.getItem("forms"))
+        if(listPersons.length === 0){
+            return {
+                exito:false,
+                message:"no hay registros"
+            }
+        }
+        const person = listPersons.find(person => person.identificador_único === data.identificador_único)
+        if(!person){
+            return {
+                exito:false,
+                message:"esta persona no fue encontrada"
+            }
+        }
+        Object.entries(data).forEach(([key,value]) =>{
+            person[key] = value
+            this[key] = value // actualizo el valor en el mismo objeto
+        })
+
+        const esMayor = this.esMayor()? "Si":"No"
+        document.querySelector(`[data-esmayor='${this.identificador_único}']`).textContent = esMayor;
+
+        localStorage.setItem("forms",JSON.stringify(listPersons))
+        return {
+            exito:true,
+            message:"actualizado con exito",
+        }
+    }
 }
 export class Empleado extends Persona{
     constructor(      

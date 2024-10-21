@@ -65,12 +65,25 @@ export function generarLi(data) {
   const idParagraph = document.createElement("p");
   idParagraph.className = "previous-info-id";
   idParagraph.textContent = `ID: ${data.identificador_único}`;
-
+  
   // Añadir el contenido al contenedor de detalles
   detailsContainer.appendChild(nameHeader);
   detailsContainer.appendChild(phoneParagraph);
   detailsContainer.appendChild(idParagraph);
 
+  if(!!data.esMayor){
+    // Crear el <p> con edad
+    const edadParagraph = document.createElement("p");
+    edadParagraph.className = "previous-info-id";
+    const respuesta = data.esMayor()? "Si":"No"
+    const span = document.createElement("span")
+    span.textContent = respuesta
+    span.dataset.esmayor = data.identificador_único
+    edadParagraph.textContent = "Es Mayor de edad: ";
+    edadParagraph.appendChild(span)
+    detailsContainer.appendChild(edadParagraph);
+  }
+  
   // Crear el contenedor de los iconos
   const iconsContainer = document.createElement("div");
   iconsContainer.className = "previous-info-icons-contaienr";

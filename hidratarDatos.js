@@ -5,7 +5,7 @@ const informe = {
 
 }
 
-const mostrarInforme = false
+let mostrarInforme = false
 
 export function hidratarDesdeJSON(json,guardarEnMemoria = false){
     const datos = JSON.parse(json)
@@ -22,7 +22,7 @@ export function hidratarDesdeJSON(json,guardarEnMemoria = false){
         try {
             newFormulario.validarCampos()
             formulariosHidratados.push(newFormulario)
-            const li = newFormulario.generarElemento(valores)
+            const li = newFormulario.generarElemento(newFormulario)
             formulariosPreviosEnHTML.appendChild(li)
             if(guardarEnMemoria){
                 newFormulario.saveData(valores)
