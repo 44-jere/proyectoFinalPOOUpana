@@ -131,6 +131,10 @@ input{
     height: 30px;
     width: 40%;
 }
+/* estolos al filtrar */
+.hide > *:not(.exception){
+    display: none;
+}
 
 /* estilos de los formularios previos */
 #previous-forms-filed-list{

@@ -23,6 +23,12 @@
                     <p>Si lo deseas puedes soltar tus archivos aqui.</p>
                 </label>
             </article>
+            <article class="form-type-container">
+                <label>
+                    <p>Filtrar por DPI.</p>
+                    <input type="number" id="filtro"/>
+                </label>
+            </article>
             <article class="previous-forms-filed-container">
                 <h3>Formularios previos</h3>
                 <ol id="previous-forms-filed-list" class="animacion-aparecer">
@@ -63,6 +69,10 @@
                     <div class="input-container">
                         <label for="municipio_o_ciudad_de_nacimiento">municipio o ciudad de nacimiento</label>
                         <input type="text" name="municipio_o_ciudad_de_nacimiento" id="municipio_o_ciudad_de_nacimiento" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="DPI">DPI</label>
+                        <input type="number" name="DPI" id="DPI" required>
                     </div>
                     
                 </fieldset>
@@ -119,4 +129,5 @@
 <script type="module" src="./registrarCursos.js"></script>
 <script type="module" src="./script.js"></script>
 <script type="module" src="./constructores.js"></script>
+<script type="module" src="./filtrarPorDPI.js"></script>
 </html>

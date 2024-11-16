@@ -56,6 +56,7 @@ formularioSeleccionado.addEventListener("input",obtenerValor)
 export function manejarCreacionFormulario(evento){
     evento.preventDefault()
     const informacion = new clase({})
+    console.log(formulariosHidratados)
     const valoresExtraidos = informacion.obtenerInfoDeForm(formularioPrincipal)
     informacion.saveData(valoresExtraidos)
     informacion.updatePerson(valoresExtraidos)
@@ -75,3 +76,23 @@ export function manejarCreacionFormulario(evento){
 
 // recolectar la informacion del formulario
 formularioPrincipal.addEventListener("submit",manejarCreacionFormulario)
+
+
+//logica filtrar
+const inputFiltrar = document.getElementById("filtro")
+const contenedorLI = document.getElementById("previous-forms-filed-list")
+
+function logicaFiltrar(){
+    const DPI = inputFiltrar.value
+    contenedorLI.classList.add("hide")
+    document.querySelectorAll(".exception").forEach(e=>e.classList.remove("exception"))
+    if(DPI === ""){
+        contenedorLI.classList.remove("hide")
+        return
+    }
+    const existe = formulariosHidratados.find(formulario=>formulario.DPI === DPI)
+    if(!existe) return
+    document.getElementById(existe.identificador_único).classList.add("exception")
+}
+
+inputFiltrar.addEventListener("input",logicaFiltrar)

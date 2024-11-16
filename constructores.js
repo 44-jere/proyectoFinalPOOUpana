@@ -2,6 +2,7 @@ import {generarLi} from "./LIgenerador.js"
 import {buscarYactualizarInputs} from "./acualizadorInputs.js"
 import {generarInput} from "./inputGenerador.js"
 import {generarSeccionCursos,generarElementoCurso} from "./registrarCursos.js"
+import { formulariosHidratados } from "./script.js";
 function campoNoDado(message){
     alert(message)
     throw new Error(message);
@@ -42,7 +43,8 @@ export class Persona{
             municipio_o_ciudad_de_nacimiento = "",
             correo_electrónico = "",
             teléfono_celular = "",
-            teléfono_residencial = ""
+            teléfono_residencial = "",
+            DPI = ""
         }
     ){
         this.tipo_formulario = tipo_formulario,
@@ -59,7 +61,8 @@ export class Persona{
         this.municipio_o_ciudad_de_nacimiento = municipio_o_ciudad_de_nacimiento,
         this.correo_electrónico = correo_electrónico,
         this.teléfono_celular = teléfono_celular,
-        this.teléfono_residencial = teléfono_residencial
+        this.teléfono_residencial = teléfono_residencial,
+        this.DPI = DPI
     }
     validarCampos(){
         if(this.primer_nombre === "") campoNoDado("campo primer nombre no dado")
@@ -69,6 +72,8 @@ export class Persona{
         if(this.país_de_nacimiento === "") campoNoDado("campo país de nacimiento no dado")
         if(this.departamento_o_provincia_de_nacimiento === "") campoNoDado("departamento o provincia de nacimiento")
         if(this.municipio_o_ciudad_de_nacimiento === "") campoNoDado("municipio o ciudad de nacimiento")
+        if(this.DPI === "") campoNoDado("DPI no dado")
+        if(formulariosHidratados.some(e=>e.DPI === this.DPI)) campoNoDado("DPI ya ingresado")
     }
     deletePerson(id){
         const listPersons = JSON.parse(localStorage.getItem("forms"))
@@ -186,7 +191,8 @@ export class Estudiante extends Persona{
             teléfono_celular = "",
             teléfono_residencial = "",
             correo_institucional="",
-            número_de_carnet = ""            
+            número_de_carnet = "",
+            DPI = ""         
         }
     ){
         super(
@@ -206,7 +212,8 @@ export class Estudiante extends Persona{
                 correo_electrónico,
                 teléfono_celular,
                 número_de_carnet,
-                teléfono_residencial
+                teléfono_residencial,
+                DPI
             }
         )
         this.correo_institucional = correo_institucional,
@@ -304,7 +311,8 @@ export class Empleado extends Persona{
             correo_institucional = "",
             puesto = "",
             profesión = "",
-            salario_mensual = ""
+            salario_mensual = "",
+            DPI = "" 
         }
     ){
         super(
@@ -324,6 +332,7 @@ export class Empleado extends Persona{
                 correo_electrónico,
                 teléfono_celular,
                 teléfono_residencial,
+                DPI
             }
         )
         this.código_de_empleado = código_de_empleado,
@@ -374,7 +383,8 @@ export class Docente extends Persona{
             puesto = "",
             profesión = "",
             salario_mensual = "",
-            cursos = []
+            cursos = [],
+            DPI = "" 
         }
     ){
         super(
@@ -393,7 +403,8 @@ export class Docente extends Persona{
                 municipio_o_ciudad_de_nacimiento,
                 correo_electrónico,
                 teléfono_celular,
-                teléfono_residencial
+                teléfono_residencial,
+                DPI
             }
         )
         this.código_de_empleado = código_de_empleado,
